@@ -22,7 +22,7 @@ claude install-skill /path/to/apple-design-skill
 Or clone and install:
 
 ```bash
-git clone https://github.com/lifefarmerwu/apple-design-skill.git
+git clone https://github.com/dickwu/apple-design-skill.git
 claude install-skill ./apple-design-skill
 ```
 
@@ -40,7 +40,7 @@ description: Apple HIG design review and improvement
 globs: ["**/*.dart", "**/*.tsx", "**/*.jsx", "**/*.vue", "**/*.svelte", "**/*.swift"]
 ---
 
-@import https://raw.githubusercontent.com/lifefarmerwu/apple-design-skill/main/SKILL.md
+@import https://raw.githubusercontent.com/dickwu/apple-design-skill/main/SKILL.md
 ```
 
 **Option B — Project Rules**
@@ -58,7 +58,7 @@ Add as a custom instruction or system prompt source:
 1. Clone this repo into your project or reference it as a submodule:
 
 ```bash
-git submodule add https://github.com/lifefarmerwu/apple-design-skill.git .design-rules
+git submodule add https://github.com/dickwu/apple-design-skill.git .design-rules
 ```
 
 2. In your Codex instructions or `AGENTS.md`, reference it:
