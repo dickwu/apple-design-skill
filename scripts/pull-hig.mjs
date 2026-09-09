@@ -302,10 +302,15 @@ function anchorMapFor(json) {
   return new Map(anchorEntries(content));
 }
 
-/** Anchors Apple no longer publishes (stale links on Apple's side) resolve to the file itself. */
+/**
+ * Anchors Apple no longer publishes (stale links on Apple's side) resolve to the file itself
+ * and are collected so the run can report them.
+ */
 function resolveAnchor(slug, anchor, ctx) {
   const lowered = anchor.replace(/^#/, '').toLowerCase();
-  return ctx.anchors.get(slug)?.get(lowered) ?? '';
+  const mapped = ctx.anchors.get(slug)?.get(lowered);
+  if (mapped === undefined) ctx.staleAnchors.add(`${ctx.slug}.md -> ${slug}.md#${lowered}`);
+  return mapped ?? '';
 }
 
 /** Links a page to another HIG page: local when that page is pulled, plain text otherwise. */
@@ -592,9 +597,9 @@ function uniqueBySlug(entries) {
   return entries.filter((entry) => (seen.has(entry.slug) ? false : seen.add(entry.slug)));
 }
 
-function renderPage(page, included, anchors) {
+function renderPage(page, included, anchors, staleAnchors) {
   const { json, slug } = page;
-  const ctx = { refs: json.references ?? {}, included, slug, anchors };
+  const ctx = { refs: json.references ?? {}, included, slug, anchors, staleAnchors };
   const content = json.primaryContentSections?.find((section) => section.kind === 'content')?.content ?? [];
   if (content.length === 0) throw new Error(`No content blocks for ${slug}; Apple's page format may have changed. Nothing was pruned.`);
   const { lines, related } = renderBody(content, ctx);
@@ -749,9 +754,10 @@ async function main() {
   if (included.length === 0) throw new Error('Every crawled page was omitted. Check the platform metadata; nothing was written.');
   const includedSet = new Set(included.map((page) => page.slug));
   const anchors = new Map(included.map((page) => [page.slug, anchorMapFor(page.json)]));
+  const staleAnchors = new Set();
 
   await mkdir(opts.out, { recursive: true });
-  await Promise.all(included.map((page) => writeFile(path.join(opts.out, `${page.slug}.md`), renderPage(page, includedSet, anchors))));
+  await Promise.all(included.map((page) => writeFile(path.join(opts.out, `${page.slug}.md`), renderPage(page, includedSet, anchors, staleAnchors))));
   await mkdir(path.dirname(opts.lookup), { recursive: true });
   await writeFile(opts.lookup, renderLookup(included, omitted, pulledOn));
 
@@ -760,6 +766,7 @@ async function main() {
 
   console.log(`Wrote ${included.length} guideline files to ${path.relative(REPO_ROOT, opts.out) || opts.out}`);
   console.log(`Omitted ${omitted.length} pages (listed in ${path.relative(REPO_ROOT, opts.lookup) || opts.lookup})`);
+  if (staleAnchors.size) console.log(`Dropped ${staleAnchors.size} anchor(s) Apple no longer publishes: ${[...staleAnchors].join(', ')}`);
   if (pruned.removed.length) console.log(`Pruned stale files: ${pruned.removed.join(', ')}`);
   if (pruned.refused.length) {
     console.warn(`Refused to prune ${pruned.refused.length} files in one run (${pruned.refused.join(', ')}). Re-run with --force-prune if Apple really removed them.`);

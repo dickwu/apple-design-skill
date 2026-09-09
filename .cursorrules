@@ -12,6 +12,8 @@ When reviewing or improving UI/UX designs, follow the Apple HIG based design rev
    AppKit).
 6. Tag each finding Critical, High, Medium, or Low, and use the report format from SKILL.md:
    Summary, Critical, Improvements, Craft notes, What works, Platform notes.
+7. Cite a guideline or label the point as your own judgment; never invent one. A strong design
+   gets a short review, not a list of manufactured findings.
 
 Trigger this process when the user asks to: review a design, audit UI/UX, check accessibility,
 improve a layout, implement Liquid Glass or glassmorphism, make a design less generic, review an

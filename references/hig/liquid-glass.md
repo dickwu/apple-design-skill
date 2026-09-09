@@ -101,9 +101,9 @@ Properties to replicate:
 
 ### Tauri and Electron
 
-- Prefer real system materials over CSS imitation. Electron exposes the `vibrancy` window option on macOS and `backgroundMaterial` on Windows. Tauri apps use the `window-vibrancy` crate, which applies NSVisualEffectView materials on macOS and Mica or Acrylic on Windows. System materials honor Reduce Transparency and Increase Contrast for free.
+- Prefer real system materials over CSS imitation. Electron exposes the `vibrancy` window option on macOS and `backgroundMaterial` on Windows. Tauri apps use the `window-vibrancy` crate, which applies NSVisualEffectView materials on macOS and Mica or Acrylic on Windows. The native window material responds to Reduce Transparency on its own; glass drawn with CSS inside the webview does not, so it needs the manual path below.
 - Inside the webview, approximate glass with `backdrop-filter: blur(24px) saturate(1.4)` plus the `-webkit-` prefix, a translucent `background`, and a one-pixel translucent border.
-- Respond to `prefers-color-scheme`, `prefers-contrast: more`, and `prefers-reduced-motion` by switching to opaque fills and dropping morph animations. `prefers-reduced-transparency` works in Electron's Chromium but not in Tauri's WebKit webview. On Tauri, read the system setting natively (on macOS, `NSWorkspace`'s `accessibilityDisplayShouldReduceTransparency`) and pass it to the page, or rely on the system material, which already honors it.
+- Respond to `prefers-color-scheme`, `prefers-contrast: more`, and `prefers-reduced-motion` by switching to opaque fills and dropping morph animations. `prefers-reduced-transparency` is Chromium-only: it works in Electron everywhere and in Tauri on Windows, but not in Tauri's WebKit webview on macOS or Linux. There, read the setting natively (on macOS, `NSWorkspace`'s `accessibilityDisplayShouldReduceTransparency`) and pass it to the page, or use the native window material, which already responds to it.
 - `backdrop-filter` over animating content is expensive. Keep glass regions few and small, which is also Apple's rule.
 
 ### React Native
