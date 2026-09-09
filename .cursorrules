@@ -1,10 +1,18 @@
-When reviewing or improving UI/UX designs, follow the Apple HIG-based design review process:
+When reviewing or improving UI/UX designs, follow the Apple HIG based design review process:
 
-1. Read SKILL.md for the full review methodology
-2. Read references/hig-lookup.md to find which guideline files are relevant
-3. Load the relevant references/hig/*.md files before giving feedback
-4. Always cite specific guideline sections in your review
-5. Use the user's framework terminology (Flutter, Tauri, Electron, React Native, etc.)
+1. Read SKILL.md in full. It defines Apple's eight design principles, the five audit lenses
+   (accessibility, platform conventions, visual design and craft, interaction, writing), the
+   report format, and the design improvement process.
+2. Read references/hig-lookup.md to find which guideline files cover the topic.
+3. Load references/hig/accessibility.md, layout.md, typography.md, color.md, and the platform
+   overview (designing-for-ios.md or designing-for-macos.md), then 3 to 6 files for what is on
+   screen. Never load the whole directory.
+4. Cite every recommendation as `file.md › Heading` with a short quote.
+5. Use the user's framework vocabulary (Flutter, React Native, Tauri, Electron, SwiftUI, UIKit,
+   AppKit).
+6. Tag each finding Critical, High, Medium, or Low, and use the report format from SKILL.md:
+   Summary, Critical, Improvements, Craft notes, What works, Platform notes.
 
 Trigger this process when the user asks to: review a design, audit UI/UX, check accessibility,
-improve a layout, implement Liquid Glass / glassmorphism, or evaluate any visual/interaction design.
+improve a layout, implement Liquid Glass or glassmorphism, make a design less generic, review an
+app icon, or evaluate any visual or interaction design.
