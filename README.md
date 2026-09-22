@@ -1,10 +1,11 @@
 # Apple Design Skill
 
 An AI design reviewer grounded in Apple's Human Interface Guidelines, packaged as an agent skill.
-It audits and improves mobile and desktop UI against 122 HIG pages pulled straight from
-developer.apple.com, translates Apple's vocabulary for **Flutter**, **React Native**, **Tauri**,
-**Electron**, **SwiftUI**, **UIKit**, and **AppKit**, and adds a design-craft lens so the result
-feels at home on the platform without looking like a template.
+It audits and improves mobile and desktop UI, including layouts for the two-display iPhone Duo,
+against 123 HIG pages pulled straight from developer.apple.com, translates Apple's vocabulary for
+**Flutter**, **React Native**, **Tauri**, **Electron**, **SwiftUI**, **UIKit**, and **AppKit**, and
+adds a design-craft lens so the result feels at home on the platform without looking like a
+template.
 
 ## Install
 
@@ -69,6 +70,7 @@ Ask your agent things like:
 - *"Review my Flutter app's home screen against Apple's guidelines"*
 - *"Audit this Tauri app for accessibility"*
 - *"Does this settings screen follow macOS conventions?"*
+- *"Is my Flutter app ready for iPhone Duo's two displays?"*
 - *"This looks generic. Give it a point of view without breaking iOS patterns"*
 - *"How do I do Liquid Glass in React Native?"*
 - *"Check this app icon"*
@@ -92,7 +94,15 @@ The reviewer reads the relevant guideline files before it writes a word, then wo
 
 Every finding has a What, a Why that cites the guideline file and heading, and a Fix written in
 your framework. Specialized modes cover app icons, accessibility audits, dark mode, Liquid Glass,
-navigation structure, onboarding and permissions, forms, generative AI, and single components.
+navigation structure, iPhone Duo, onboarding and permissions, forms, generative AI, and single
+components.
+
+**iPhone Duo mode** walks the outer display, the inner display, a partial fold, and Split View
+against Apple's iPhone Duo guidance: layouts built from size classes instead of fixed widths, the
+same functions on both displays, toolbars and tab bars left in the system's default placement,
+and content kept clear of the cameras and the fold. It also flags bars and dialogs drawn by
+Flutter or in JavaScript, which miss the system's automatic adaptations unless the framework or
+your code provides them.
 
 **Improvement mode** goes further: it grounds the design in the product, plans a token system
 (palette, type roles, layout wireframe, one signature element, motion), critiques that plan
@@ -110,8 +120,9 @@ apple-design-skill/
 │   └── pull-hig.mjs             # Re-pulls the guidelines from developer.apple.com
 └── references/
     ├── hig-lookup.md            # Generated routing table with Apple's summaries and change dates
-    └── hig/                     # 122 generated pages + 1 curated guide
+    └── hig/                     # 123 generated pages + 1 curated guide
         ├── design-principles.md
+        ├── designing-for-iphone-duo.md
         ├── accessibility.md
         ├── buttons.md
         ├── tab-bars.md
@@ -121,12 +132,12 @@ apple-design-skill/
 
 | Section | Files | Includes |
 | --- | --- | --- |
-| Getting started | 5 | Design principles; designing for iOS, iPadOS, macOS, and games |
+| Getting started | 6 | Design principles; designing for iOS, iPadOS, macOS, iPhone Duo, and games |
 | Foundations | 16 | Accessibility, color, typography, layout, materials, dark mode, icons, SF Symbols, images, motion, branding, privacy, inclusion, right to left, writing, app icons |
 | Patterns | 24 | Onboarding, launching, loading, feedback, modality, searching, settings, notifications, accounts, data entry, undo, sharing, files, charts, audio, video, haptics, printing, multitasking, full screen, help, drag and drop, ratings, live viewing |
 | Components | 57 | Buttons, menus, the menu bar, toolbars, tab bars, sidebars, split views, sheets, alerts, action sheets, popovers, panels, windows, lists and tables, collections, text fields, pickers, toggles, sliders, steppers, segmented controls, search fields, progress indicators, gauges, labels, charts, widgets, notifications, Live Activities, controls, status bars, and more |
 | Inputs | 7 | Gestures, keyboards, pointing devices, focus and selection, game controls, Apple Pencil, gyroscope and accelerometer |
-| Technologies | 13 | Apple Pay, in-app purchase, Sign in with Apple, Siri, Maps, augmented reality, machine learning, generative AI, iCloud, AirPlay, NFC, App Clips, VoiceOver |
+| Technologies | 13 | Apple Pay, Apple In-App Purchase, Sign in with Apple, Siri, Maps, augmented reality, machine learning, generative AI, iCloud, AirPlay, NFC, App Clips, VoiceOver |
 | Curated | 1 | Liquid Glass |
 
 Each generated page keeps Apple's wording, headings, tables, notes, and change log, links to its
@@ -142,7 +153,7 @@ Apple revises the HIG several times a year. To pull the latest version:
 node scripts/pull-hig.mjs
 ```
 
-Node 18 or newer, no dependencies, about 150 requests. The script crawls Apple's section index,
+Node 18 or newer, no dependencies, about 170 requests. The script crawls Apple's section index,
 renders each page from the same JSON Apple's site uses, writes `references/hig/*.md` and
 `references/hig-lookup.md`, and removes pages Apple has retired. Pass `--cache <dir>` to keep the
 raw JSON for instant re-runs, and `--no-prune` to keep files the crawl no longer finds. Running the

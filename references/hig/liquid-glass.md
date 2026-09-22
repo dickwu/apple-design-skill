@@ -1,7 +1,7 @@
 # Liquid Glass
 
-> Curated guide, maintained by hand. Distilled from Apple's [Materials](materials.md) page (Apple's last change 2025-09-09), the Liquid Glass section of [Color](color.md) (2025-12-16), and the component pages that adopt the material. The pull script never overwrites this file; refresh it when those pages change.
-> Sources: <https://developer.apple.com/design/human-interface-guidelines/materials> and <https://developer.apple.com/design/human-interface-guidelines/color>
+> Curated guide, maintained by hand. Distilled from Apple's [Materials](materials.md) page (Apple's last change 2025-09-09), the Liquid Glass section of [Color](color.md) (2025-12-16), the control-layer and brand-color guidance in [Layout](layout.md) and [Branding](branding.md) (both 2026-09-09), and the component pages that adopt the material. The pull script never overwrites this file; refresh it when those pages change.
+> Sources: <https://developer.apple.com/design/human-interface-guidelines/materials>, <https://developer.apple.com/design/human-interface-guidelines/color>, <https://developer.apple.com/design/human-interface-guidelines/layout>, and <https://developer.apple.com/design/human-interface-guidelines/branding>
 > Platforms covered: iOS, iPadOS, macOS, with a translation section for Flutter, Tauri, Electron, and React Native
 
 Liquid Glass is the dynamic, translucent material Apple introduced in 2025 for the layer of controls and navigation that floats above an app's content. Use this guide whenever a design uses glass, blur, or frosted surfaces, whether it ships on Apple platforms or imitates the look elsewhere.
@@ -25,6 +25,7 @@ Each bold sentence is Apple's own guideline, condensed. Follow the link for the 
 
 - **Don't use Liquid Glass in the content layer.** Putting it there creates unnecessary complexity and a confusing hierarchy. The one exception is a control in the content layer with a transient interactive element, such as a slider or toggle, which takes on a glass appearance only while a person is manipulating it. ([Materials](materials.md#liquid-glass))
 - **Use Liquid Glass effects sparingly.** Standard system components pick up the material automatically. If you apply it to a custom control, limit it to the most important functional elements; glass on many custom controls distracts from the content it is meant to frame. ([Materials](materials.md#liquid-glass))
+- **Differentiate controls from content.** Let the material set controls apart: use a scroll edge effect instead of a solid or semi-opaque background color beneath them, and extend full-screen background content beneath sidebars, toolbars, and tab bars. ([Layout](layout.md#visual-hierarchy))
 - **Extend visually rich content beneath the sidebar** so the material has something to reflect. ([Sidebars](sidebars.md))
 - **Reduce the use of toolbar backgrounds and tinted controls.** ([Toolbars](toolbars.md))
 
@@ -46,6 +47,7 @@ Each bold sentence is Apple's own guideline, condensed. Follow the link for the 
 - **Apply color sparingly to the Liquid Glass material, and to symbols or text on the material.** Reserve it for elements that truly benefit from emphasis, such as status indicators or primary actions.
 - **To emphasize a primary action, color the background rather than the symbol or label.** That is how the system styles prominent buttons such as Done. **Refrain from adding color to the background of multiple controls.**
 - **Avoid using similar colors in control labels if your app has a colorful background.** Prefer a monochromatic toolbar or tab bar, or an accent color with sufficient differentiation. An app whose content is mostly monochrome can use its brand color as the accent.
+- **Apply your app's accent color judiciously.** Keep brand color off most controls and save it for primary actions and status indicators, such as an unread badge or the selected tab's icon. To express the brand through color, consider moving it into the content layer, where it scrolls beneath the glass and the material picks it up. ([Branding](branding.md#best-practices))
 - **Be aware of the placement of color in the content layer.** The resting state, such as the top of a scrollable screen, must keep controls legible even if colorful content scrolls beneath them later.
 - The component pages repeat the same rule from their side: keep prominent buttons to one or two per view ([Buttons](buttons.md)), and avoid applying a similar color to tab or toolbar labels and content-layer backgrounds ([Tab bars](tab-bars.md), [Toolbars](toolbars.md)).
 
@@ -64,9 +66,9 @@ Derived from the rules above. Cite the linked page when you flag an issue.
 1. **Layer discipline.** Glass appears only on floating controls and navigation. Glass on app backgrounds, cards, list rows, or content containers is a defect.
 2. **Restraint.** Count the custom glass surfaces. More than the few most important functional elements is a defect. Glass stacked on glass blurs the hierarchy the material exists to create.
 3. **Variant fit.** Text-heavy surfaces and busy backgrounds need the regular variant. Clear glass appears only over media, with a dark dimming layer of about 35% considered when that media is bright.
-4. **Color budget.** One, at most two, tinted primary actions per view ([Buttons](buttons.md)), never a row of them. Labels stay monochrome over colorful content. Check legibility at the resting scroll position.
+4. **Color budget.** One, at most two, tinted primary actions per view ([Buttons](buttons.md)), never a row of them. Labels stay monochrome over colorful content. Brand color stays off controls other than primary actions and status indicators ([Branding](branding.md#best-practices)). Check legibility at the resting scroll position.
 5. **Accessibility states.** Reduce Transparency gets an opaque fallback, Increase Contrast gets stronger fills and borders, Reduce Motion drops morphing and refraction animation.
-6. **Scroll edge effect.** Content fades and blurs where it meets a bar instead of colliding with it.
+6. **Scroll edge effect.** Content fades and blurs where it meets a bar instead of colliding with it, and no solid or semi-opaque background color is painted beneath the bar in place of the material ([Layout](layout.md#visual-hierarchy)).
 7. **Targets.** Glass never shrinks hit regions below the platform minimum: 44 by 44 pt default and 28 by 28 pt minimum on mobile, 28 by 28 pt default and 20 by 20 pt minimum on desktop ([Accessibility](accessibility.md)).
 
 ## Cross-platform translation
@@ -116,6 +118,8 @@ Properties to replicate:
 
 - [Materials](materials.md)
 - [Color](color.md)
+- [Layout](layout.md)
+- [Branding](branding.md)
 - [Buttons](buttons.md)
 - [Tab bars](tab-bars.md)
 - [Toolbars](toolbars.md)

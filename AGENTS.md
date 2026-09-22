@@ -4,7 +4,7 @@ Operating manual for AI agents working in this repository, or using it from anot
 
 ## What this repository is
 
-Apple Design Skill: a design-review skill (`SKILL.md`) backed by 122 pages of Apple's Human
+Apple Design Skill: a design-review skill (`SKILL.md`) backed by 123 pages of Apple's Human
 Interface Guidelines pulled from developer.apple.com into `references/hig/`, one curated guide,
 a generated lookup table, and the script that regenerates all of it.
 
@@ -31,7 +31,7 @@ a generated lookup table, and the script that regenerates all of it.
 | `README.md` | Installation and overview for people | Yes |
 | `.cursorrules` | Entry point for Cursor | Yes |
 | `references/hig-lookup.md` | Generated routing table with an omitted-pages list | No, re-run the script |
-| `references/hig/*.md` | 122 generated pages in Apple's wording | No, re-run the script |
+| `references/hig/*.md` | 123 generated pages in Apple's wording | No, re-run the script |
 | `references/hig/liquid-glass.md` | Curated Liquid Glass guide; the script never touches it | Yes |
 | `scripts/pull-hig.mjs` | Pull script, Node 18 or newer, no dependencies | Yes |
 
@@ -47,7 +47,7 @@ Options: `--out <dir>`, `--lookup <file>`, `--cache <dir>`, `--concurrency <n>`,
 
 What the script does:
 
-- Crawls Apple's six HIG sections and their sub-collections (157 pages as of September 2026).
+- Crawls Apple's six HIG sections and their sub-collections (158 pages as of September 2026).
 - Keeps every page that applies to iOS, iPadOS, or macOS, omits Apple-only hardware and services
   listed in `OMITTED_PAGES`, and records every omission with a reason in `hig-lookup.md`.
 - Renders Apple's JSON to Markdown faithfully: headings, paragraphs, lists, tables, notes, and
@@ -64,8 +64,10 @@ What the script does:
   that would prune more than a tenth of the files stops and asks for `--force-prune`.
 
 After running it: review `git diff --stat`, spot-check a changed file, run the checks below,
-refresh `liquid-glass.md` if `materials.md` or `color.md` changed, and update the counts in
-`README.md` if the file count changed.
+refresh `liquid-glass.md` if a page it links to changed, and update the page counts in
+`README.md`, `SKILL.md`, and this file if the file count changed. A new "Designing for" page has
+no platform metadata: if its `Platforms covered` line doesn't name a platform, add its slug to
+`DESIGNING_FOR_COVERAGE` in the script.
 
 ## Checks before finishing any change
 
