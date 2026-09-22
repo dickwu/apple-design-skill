@@ -2,7 +2,7 @@
 
 > Source: <https://developer.apple.com/design/human-interface-guidelines/designing-for-games>
 > Section: Getting started
-> Platforms covered: games
+> Platforms covered: All Apple platforms
 > Last change on Apple's site: 2025-06-09 (Updated guidance for touch-based controls and Game Center.)
 
 When people play your game on an Apple device, they dive into the world you designed while relying on the platform features they love.

@@ -15,7 +15,7 @@ After a collaboration begins, people can use the Collaboration button in your ap
 
 You can take advantage of Messages integration and the system-provided sharing interfaces whether you implement collaboration and sharing through CloudKit, iCloud Drive, or a custom solution. To offer these features when you use a custom collaboration infrastructure, make sure your app also supports universal links (for developer guidance, see [Supporting universal links in your app](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)).
 
-In addition to helping people share and collaborate on documents, visionOS supports immersive sharing experiences through SharePlay. For guidance, see SharePlay.
+With SharePlay, people can also take part in your app’s activities together in real time, from their own devices. For guidance, see SharePlay.
 
 ## Best practices
 

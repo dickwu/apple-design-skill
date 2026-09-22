@@ -47,7 +47,7 @@ If you help people create an account within your app or game, you must also help
 - Billing for an auto-renewable subscription continues through Apple until people cancel the subscription, regardless of whether they delete their account.
 - After they delete their account, people need to cancel their subscription or request a refund.
 
-In addition to helping people understand these scenarios, provide information that describes how to cancel subscriptions and manage purchases. For guidance, see [Helping people manage their subscriptions](in-app-purchase.md#helping-people-manage-their-subscriptions) and [Providing help with in-app purchases](in-app-purchase.md#providing-help-with-in-app-purchases).
+In addition to helping people understand these scenarios, provide information that describes how to cancel subscriptions and manage purchases. For guidance, see [Helping people manage their subscriptions](apple-in-app-purchase.md#helping-people-manage-their-subscriptions) and [Providing help](apple-in-app-purchase.md#providing-help).
 
 > **Note:** Even if people didn’t use your app to purchase the subscription, you still need to support account deletion.
 

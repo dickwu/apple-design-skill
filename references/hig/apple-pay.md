@@ -17,7 +17,7 @@ People pay using Face ID, Touch ID, or Optic ID on supported devices, or by doub
 
 For developer guidance, see [Apple Pay](https://developer.apple.com/documentation/passkit/apple-pay) and [Apple Pay on the Web](https://developer.apple.com/documentation/applepayontheweb). For a hands-on demo of Apple Pay on the web, see [Apple Pay on the web interactive demo](https://applepaydemo.apple.com).
 
-> **Note:** Use [In-app purchase](in-app-purchase.md) to sell virtual goods in your app, such as premium content, and subscriptions for digital content.
+> **Note:** Use [Apple In-App Purchase](apple-in-app-purchase.md) to sell virtual goods in your app, such as premium content, and subscriptions for digital content.
 
 ## Offering Apple Pay
 
