@@ -53,6 +53,12 @@ const PLATFORM_NAMES = { ios: 'iOS', ipados: 'iPadOS', macos: 'macOS', tvos: 'tv
 const PLATFORM_LIST_RE = new RegExp(`^(${ALL_PLATFORMS.join('|')})(, (${ALL_PLATFORMS.join('|')}))*$`);
 
 /**
+ * "Designing for" pages carry no platform metadata. Platform pages map through PLATFORM_NAMES;
+ * these name a device or a kind of app instead. Any other one falls back to its title.
+ */
+const DESIGNING_FOR_COVERAGE = { games: 'All Apple platforms', 'iphone-duo': 'iOS (iPhone Duo)' };
+
+/**
  * Pages that do apply to iOS, iPadOS, or macOS but describe Apple-only hardware or
  * services with no cross-platform equivalent. The reason is printed in hig-lookup.md.
  */
@@ -85,7 +91,7 @@ const OMITTED_PAGES = {
 
 /** Hand-written guides that live next to the pulled files and are never pruned. */
 const CURATED_FILES = [
-  { file: 'liquid-glass.md', title: 'Liquid Glass', covers: 'Liquid Glass rules distilled from the materials and color pages, with implementation notes for Flutter, Tauri, Electron, and React Native' },
+  { file: 'liquid-glass.md', title: 'Liquid Glass', covers: 'Liquid Glass rules distilled from the materials, color, layout, and branding pages, with implementation notes for Flutter, Tauri, Electron, and React Native' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -582,7 +588,8 @@ function coveredPlatformsLine(page) {
     return `${prettyPlatforms(kept)}${note}`;
   }
   const suffix = page.slug.match(/^designing-for-(.+)$/)?.[1];
-  return suffix ? PLATFORM_NAMES[suffix] ?? suffix : 'All Apple platforms';
+  if (!suffix) return 'All Apple platforms';
+  return PLATFORM_NAMES[suffix] ?? DESIGNING_FOR_COVERAGE[suffix] ?? (page.title ?? suffix).replace(/^Designing for /, '');
 }
 
 function lastChangeLine(json) {
