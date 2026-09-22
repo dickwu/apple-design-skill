@@ -19,7 +19,7 @@ Content scrolls and peeks through the functional layer. The material blurs and a
 
 ## Apple's rules
 
-Each bold sentence is Apple's own guideline, condensed. Follow the link for the full paragraph.
+Each bold sentence condenses one of Apple's guidelines. Follow the link for Apple's full wording.
 
 ### Where the material belongs
 
