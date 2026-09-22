@@ -33,6 +33,7 @@ Everything lives under `references/` relative to this skill's directory.
 | `references/hig-lookup.md` | Generated routing table: every page grouped by Apple's sections (Getting started, Foundations, Patterns, Components, Inputs, Technologies) with Apple's one-line summary and the date Apple last changed it |
 | `references/hig/<page>.md` | One file per HIG page in Apple's own wording and headings. Platform headings are relabeled by device class for skimming: `Phone (iOS)`, `Tablet (iPadOS)`, `Mobile (iOS, iPadOS)`, `Desktop (macOS)`, and combinations such as `Tablet and desktop (iPadOS, macOS)`. Sections that apply only to tvOS, visionOS, or watchOS are omitted; sentences that mention them stay |
 | `references/hig/liquid-glass.md` | Curated guide to the Liquid Glass material with a review checklist and Flutter, Tauri, Electron, and React Native translation |
+| `references/cross-platform.md` | Apple's names in Flutter, React Native, Tauri, and Electron terms, plus the conventions to check in each |
 | `scripts/pull-hig.mjs` | Regenerates the references from Apple's site. Not needed for reviews |
 
 Rules for using them:
@@ -47,7 +48,8 @@ Rules for using them:
 ### Always load
 
 `accessibility.md`, `layout.md`, `typography.md`, `color.md`, plus `designing-for-ios.md` or
-`designing-for-macos.md` (or both) for the platform in front of you.
+`designing-for-macos.md` (or both) for the platform in front of you. Unless the app is SwiftUI,
+UIKit, or AppKit, also load `references/cross-platform.md` to translate Apple's terms for it.
 
 ### Load by what is on screen
 
@@ -74,29 +76,6 @@ Rules for using them:
 | Brand expression | `branding.md`, `design-principles.md` |
 
 Anything else: find it in `hig-lookup.md`.
-
-### Vocabulary translation
-
-The references use Apple's names. Speak the user's framework.
-
-| Reference says | Flutter / React Native | Tauri / Electron | Design meaning |
-| --- | --- | --- | --- |
-| iOS, iPadOS | Mobile, tablet | | Touch first, one-handed reach, compact width |
-| macOS | | Desktop | Pointer and keyboard, multi-window, menu bar |
-| SwiftUI, UIKit, AppKit | Widget tree, components | Web components | The framework layer |
-| System colors, semantic colors | ThemeData, design tokens | CSS custom properties | Colors named by role that adapt to light and dark |
-| SF Pro, SF Compact, New York | Platform font, Roboto, custom | System UI font stack | A legible system typeface with optical sizes |
-| Dynamic Type | textScaler, font scaling | Zoom and font-size settings | Text scales with the person's setting |
-| SF Symbols | Material Icons, Lucide, custom set | Icon set | One consistent, weight-matched icon system |
-| Tab bar | BottomNavigationBar, NavigationBar, tab navigator | | Top-level sections, always visible |
-| Sidebar, split view | NavigationRail plus detail | Sidebar plus content pane | Two- or three-column hierarchy |
-| Toolbar, navigation bar | AppBar, header | Toolbar | Actions on the current view |
-| Sheet, popover | Bottom sheet, modal, dialog | Dialog, panel | A temporary, focused task |
-| Liquid Glass | BackdropFilter blur | backdrop-filter, system vibrancy | Translucent functional layer over content |
-| VoiceOver | TalkBack, Semantics, accessibilityLabel | ARIA, screen reader | Screen reader support |
-| Safe area | SafeArea, insets | Title bar and window chrome | Content never hides under system UI |
-| Size classes (compact, regular) | Width and height breakpoints: LayoutBuilder, MediaQuery.sizeOf, useWindowDimensions | CSS media and container queries | Layout keyed to the space available, not to the device |
-| Menu bar, Dock menu | | Native app menu, tray menu | Every command reachable from a menu |
 
 ## Apple's design principles
 
@@ -388,28 +367,6 @@ studio.
 6. **Critique again.** Look for one thing to remove, and say if there is none. Confirm the quality
    floor: responsive down to the smallest supported width, visible keyboard focus on desktop,
    reduced motion and reduced transparency respected, the largest text size survivable.
-
-## Cross-platform notes
-
-Mobile (Flutter, React Native):
-
-- Bottom tab navigation, 44 pt targets (48 dp on Material), size-class layouts, safe areas,
-  system text scaling, keyboard avoidance, and swipe gestures where the platform expects them.
-- When one codebase targets iOS and Android, decide per component whether to follow each
-  platform's convention or one shared design, and say which. Tab bars, sheets, and back
-  navigation are where people notice.
-
-Desktop (Tauri, Electron):
-
-- A native menu bar with every command, standard shortcuts, standard window controls, resizable
-  and multi-window layouts, right-click context menus, hover and pointer feedback, and settings
-  under the app menu.
-- Prefer the platform's real materials and window chrome over a web imitation.
-
-Both:
-
-- Light and dark from semantic tokens, responsive layout, accessibility from the first screen, one
-  icon system, and hierarchy built from space, size, and weight.
 
 ## Working rules
 

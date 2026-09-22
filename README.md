@@ -120,6 +120,7 @@ apple-design-skill/
 │   └── pull-hig.mjs             # Re-pulls the guidelines from developer.apple.com
 └── references/
     ├── hig-lookup.md            # Generated routing table with Apple's summaries and change dates
+    ├── cross-platform.md        # Apple's names in Flutter, React Native, Tauri, Electron terms
     └── hig/                     # 123 generated pages + 1 curated guide
         ├── design-principles.md
         ├── designing-for-iphone-duo.md

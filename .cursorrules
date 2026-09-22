@@ -5,8 +5,9 @@ When reviewing or improving UI/UX designs, follow the Apple HIG based design rev
    report format, and the design improvement process.
 2. Read references/hig-lookup.md to find which guideline files cover the topic.
 3. Load references/hig/accessibility.md, layout.md, typography.md, color.md, and the platform
-   overview (designing-for-ios.md or designing-for-macos.md), then 3 to 6 files for what is on
-   screen. Never load the whole directory.
+   overview (designing-for-ios.md or designing-for-macos.md), plus references/cross-platform.md
+   unless the app is SwiftUI, UIKit, or AppKit, then 3 to 6 files for what is on screen. Never
+   load the whole directory.
 4. Cite every recommendation as `file.md › Heading` with a short quote.
 5. Use the user's framework vocabulary (Flutter, React Native, Tauri, Electron, SwiftUI, UIKit,
    AppKit).
