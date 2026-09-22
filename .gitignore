@@ -2,3 +2,4 @@
 *.skill
 evals/
 .omc/
+.cache/
