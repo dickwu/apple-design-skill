@@ -100,7 +100,7 @@ Properties to replicate:
 - SwiftUI: `glassEffect(_:in:)` with `Glass.regular` or `.clear`, `.tint(_:)` for a prominent action, and `.interactive()` for controls that respond to touch; `GlassEffectContainer` groups nearby glass shapes so they blend and morph together; `.buttonStyle(.glass)` and `.buttonStyle(.glassProminent)` for buttons.
 - UIKit: `UIGlassEffect` and `UIGlassContainerEffect` in a `UIVisualEffectView`; `UIButton.Configuration.glass()` and `.prominentGlass()`.
 - AppKit: `NSGlassEffectView` and `NSGlassEffectContainerView`.
-- `UIDesignRequiresCompatibility` in `Info.plist` opts the app out of the new design. Treat it as a temporary decision to note, not a way to pass review.
+- `UIDesignRequiresCompatibility` in `Info.plist` runs the app in a compatibility mode with the previous design. Apple documents it as temporary, and the system ignores it when you build for iOS, iPadOS, Mac Catalyst, or macOS 27 or later.
 - `references/code-audit.md` lists the code patterns that signal misuse.
 
 ### Flutter
