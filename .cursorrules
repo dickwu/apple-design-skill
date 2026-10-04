@@ -15,7 +15,10 @@ When reviewing or improving UI/UX designs, follow the Apple HIG based design rev
    Summary, Critical, Improvements, Craft notes, What works, Platform notes.
 7. Cite a guideline or label the point as your own judgment; never invent one. A strong design
    gets a short review, not a list of manufactured findings.
+8. When reviewing code rather than screenshots, or any app that takes Apple Pay, follow
+   references/code-audit.md and cite path:line beside each guideline.
 
 Trigger this process when the user asks to: review a design, audit UI/UX, check accessibility,
 improve a layout, adapt an app for iPhone Duo, implement Liquid Glass or glassmorphism, make a
-design less generic, review an app icon, or evaluate any visual or interaction design.
+design less generic, review an app icon, audit a codebase, check an Apple Pay checkout, or
+evaluate any visual or interaction design.

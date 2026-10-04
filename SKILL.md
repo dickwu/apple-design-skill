@@ -6,10 +6,11 @@ description: >
   distinctive, non-templated work. Use it to audit, review, critique, or improve any mobile app
   (iOS, Flutter, React Native) or desktop app (macOS, Tauri, Electron) design: design review, UI
   audit, HIG compliance, accessibility audit, dark mode, Liquid Glass or glassmorphism, navigation
-  structure, iPhone Duo or foldable layouts, onboarding, forms, app icons, generative AI UX, or
-  requests like "make this look less generic". Also use whenever the user shares screenshots,
+  structure, iPhone Duo or foldable layouts, Apple Pay buttons and marks, onboarding, forms, app
+  icons, generative AI UX, App Review rejections over design or branding, or requests like "make
+  this look less generic". Also use whenever the user shares screenshots,
   mockups, wireframes, Figma exports, or UI code and wants feedback, even if they only say "review
-  my design" or "is this good UI". Works for SwiftUI, UIKit, AppKit, Flutter, React Native, Tauri,
+  my design" or "is this good UI", or asks to audit a codebase or pull request. Works for SwiftUI, UIKit, AppKit, Flutter, React Native, Tauri,
   and Electron.
 ---
 
@@ -34,6 +35,7 @@ Everything lives under `references/` relative to this skill's directory.
 | `references/hig/<page>.md` | One file per HIG page in Apple's own wording and headings. Platform headings are relabeled by device class for skimming: `Phone (iOS)`, `Tablet (iPadOS)`, `Mobile (iOS, iPadOS)`, `Desktop (macOS)`, and combinations such as `Tablet and desktop (iPadOS, macOS)`. Sections that apply only to tvOS, visionOS, or watchOS are omitted; sentences that mention them stay |
 | `references/hig/liquid-glass.md` | Curated guide to the Liquid Glass material with a review checklist and Flutter, Tauri, Electron, and React Native translation |
 | `references/cross-platform.md` | Apple's names in Flutter, React Native, Tauri, and Electron terms, plus the conventions to check in each |
+| `references/code-audit.md` | What to search for in source code: hand-drawn Apple Pay buttons and marks, Liquid Glass misuse, and code that blocks iPhone Duo adaptation, each with its citation and replacement |
 | `scripts/pull-hig.mjs` | Regenerates the references from Apple's site. Not needed for reviews |
 
 Rules for using them:
@@ -72,6 +74,7 @@ UIKit, or AppKit, also load `references/cross-platform.md` to translate Apple's 
 | iPhone Duo: two displays, a fold, bars on the side | `designing-for-iphone-duo.md`, `split-views.md`, `toolbars.md`, `tab-bars.md` |
 | Notifications, widgets, live activities | `notifications.md`, `managing-notifications.md`, `widgets.md`, `live-activities.md` |
 | Charts | `charting-data.md`, `charts.md` |
+| Checkout, payment options, Apple Pay | `apple-pay.md`, `buttons.md` |
 | AI features | `generative-ai.md`, `machine-learning.md` |
 | Brand expression | `branding.md`, `design-principles.md` |
 
@@ -312,8 +315,16 @@ Citation format:
 - **Dark mode.** `dark-mode.md`, `color.md`, `materials.md`. Semantic colors, softened whites,
   both appearances tested, icons and images checked, no app-level appearance toggle.
 - **Liquid Glass.** `liquid-glass.md`, `materials.md`, `color.md`, then the component pages in
-  play. Use the checklist in the curated guide. Trigger on "Liquid Glass", "glassmorphism",
+  play. Use the checklist in the curated guide, and `references/code-audit.md` when you have the
+  code. Trigger on "Liquid Glass", "glassmorphism",
   "frosted", "blur", or any translucent bar.
+- **Apple Pay.** `apple-pay.md`, `buttons.md`, and `references/code-audit.md`. Any Apple Pay
+  button not drawn by Apple's API, any mark not Apple's unaltered artwork, the Apple logo standing
+  in for the word Apple, or a text-only Apple Pay option beside logos is Critical: App Store Review
+  Guideline 4.9 rejects it. Include web checkouts the app opens.
+- **Code audit.** When given source code or a repository, follow `references/code-audit.md`:
+  search, read each match, and cite `path:line` beside the guideline. It covers Apple Pay,
+  Liquid Glass, and iPhone Duo in code; the lenses above still apply to the rest.
 - **Navigation structure.** `tab-bars.md`, `sidebars.md`, `split-views.md`, `toolbars.md`,
   `searching.md`, `layout.md`. Map the hierarchy, count tabs and levels, check that every section
   is reachable, that the current location is always visible, and that tablet, desktop, and iPhone
@@ -324,7 +335,7 @@ Citation format:
   displays, bars pulled off the system's default placement, and essential content under a camera
   or across the fold. Apple's automatic adaptations cover standard components; custom ones,
   including bars and dialogs drawn by Flutter or in JavaScript, adapt only through the framework
-  or your code.
+  or your code. With the code in hand, run the iPhone Duo table in `references/code-audit.md`.
 - **Onboarding and permissions.** `onboarding.md`, `launching.md`, `managing-accounts.md`,
   `privacy.md`. Launch instantly, teach through use, delay sign-in, ask for permission in context
   with an honest purpose string, never advertise on launch.

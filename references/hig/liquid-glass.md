@@ -94,6 +94,15 @@ Properties to replicate:
 - **Scroll edge effect.** An extra blur and fade band where scrolling content meets a bar.
 - **Dimming layer.** About 35% black behind clear glass over bright media, when the content needs it.
 
+### SwiftUI, UIKit, and AppKit
+
+- Standard bars, sheets, popovers, and controls adopt the material on their own. Reach for the APIs below only for custom controls, and apply the rules above to them.
+- SwiftUI: `glassEffect(_:in:)` with `Glass.regular` or `.clear`, `.tint(_:)` for a prominent action, and `.interactive()` for controls that respond to touch; `GlassEffectContainer` groups nearby glass shapes so they blend and morph together; `.buttonStyle(.glass)` and `.buttonStyle(.glassProminent)` for buttons.
+- UIKit: `UIGlassEffect` and `UIGlassContainerEffect` in a `UIVisualEffectView`; `UIButton.Configuration.glass()` and `.prominentGlass()`.
+- AppKit: `NSGlassEffectView` and `NSGlassEffectContainerView`.
+- `UIDesignRequiresCompatibility` in `Info.plist` opts the app out of the new design. Treat it as a temporary decision to note, not a way to pass review.
+- `references/code-audit.md` lists the code patterns that signal misuse.
+
 ### Flutter
 
 - Build the blur with `BackdropFilter(filter: ImageFilter.blur(...))` inside a `ClipRRect`, then layer a translucent `DecoratedBox` with a one-pixel light border on top.
