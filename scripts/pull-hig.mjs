@@ -4,7 +4,7 @@
  *
  * Re-pulls Apple's Human Interface Guidelines from developer.apple.com and writes
  * one Markdown file per guideline page into references/hig/, plus the generated
- * routing table references/hig-lookup.md.
+ * lookup table references/hig-lookup.md.
  *
  * Apple serves the render data behind every HIG page as JSON at
  *   https://developer.apple.com/tutorials/data/design/human-interface-guidelines/<slug>.json

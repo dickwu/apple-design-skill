@@ -53,8 +53,8 @@ git submodule add https://github.com/dickwu/apple-design-skill.git .design-rules
 ```markdown
 ## Design reviews
 
-Follow `.design-rules/SKILL.md`. Route topics with `.design-rules/references/hig-lookup.md` and
-load the relevant `.design-rules/references/hig/*.md` files before giving design feedback.
+Follow `.design-rules/SKILL.md`, which names every guideline file, and load the relevant
+`.design-rules/references/hig/*.md` files before giving design feedback.
 ```
 
 ### Antigravity
@@ -71,8 +71,8 @@ reviews automatically in your Antigravity workspace.
 
 ### Other agents
 
-Add the same three lines to your rules file (`.windsurfrules`, `.ai-rules`, or similar):
-follow `SKILL.md`, route with `references/hig-lookup.md`, load the relevant `references/hig/*.md`
+Add the same lines to your rules file (`.windsurfrules`, `.ai-rules`, or similar): follow
+`SKILL.md`, which names every guideline file, and load the relevant `references/hig/*.md`
 files before giving feedback.
 
 ## Use it
@@ -132,14 +132,14 @@ polish.
 
 ```text
 apple-design-skill/
-├── SKILL.md                     # The skill: stance, principles, lenses, report format, improvement mode
+├── SKILL.md                     # The skill: stance, page index, principles, lenses, report format, improvement mode
 ├── AGENTS.md                    # Operating manual for agents and contributors
 ├── .cursorrules                 # Cursor entry point
 ├── GEMINI.md                    # Antigravity entry point
 ├── scripts/
 │   └── pull-hig.mjs             # Re-pulls the guidelines from developer.apple.com
 └── references/
-    ├── hig-lookup.md            # Generated routing table with Apple's summaries and change dates
+    ├── hig-lookup.md            # Generated index with Apple's summaries, change dates, and omitted pages
     ├── cross-platform.md        # Apple's names in Flutter, React Native, Tauri, Electron terms
     ├── code-audit.md            # Code patterns for Apple Pay, Liquid Glass, and iPhone Duo
     └── hig/                     # 123 generated pages + 1 curated guide
