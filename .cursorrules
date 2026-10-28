@@ -3,7 +3,9 @@ When reviewing or improving UI/UX designs, follow the Apple HIG based design rev
 1. Read SKILL.md in full. It defines Apple's eight design principles, the five audit lenses
    (accessibility, platform conventions, visual design and craft, interaction, writing), the
    report format, and the design improvement process.
-2. Read references/hig-lookup.md to find which guideline files cover the topic.
+2. Pick guideline files from SKILL.md: the always-load set, the "Load by what is on screen"
+   table, and the index of every page by Apple's section. references/hig-lookup.md adds Apple's
+   one-line summary of each page; open it when a file name is ambiguous.
 3. Load references/hig/accessibility.md, layout.md, typography.md, color.md, and the platform
    overview (designing-for-ios.md or designing-for-macos.md), plus references/cross-platform.md
    unless the app is SwiftUI, UIKit, or AppKit, then 3 to 6 files for what is on screen. Never

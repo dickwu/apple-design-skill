@@ -12,8 +12,10 @@ a generated lookup table, and the script that regenerates all of it.
 
 1. Read `SKILL.md` in full. It defines the reviewer's stance, Apple's eight design principles,
    the five audit lenses, the report format, and the improvement process.
-2. Open `references/hig-lookup.md` to route a topic to a file. It is grouped by Apple's sections
-   and carries Apple's one-line summary of every page.
+2. Pick files from `SKILL.md`: the always-load set, the "Load by what is on screen" table, and
+   the index of every page by Apple's section. `references/hig-lookup.md` adds Apple's
+   one-line summary of each page and the list of pages left out; open it to check what a page
+   covers when its name is ambiguous.
 3. Load the always-load set (`accessibility.md`, `layout.md`, `typography.md`, `color.md`, plus
    `designing-for-ios.md` or `designing-for-macos.md`, plus `references/cross-platform.md` unless
    the app is SwiftUI, UIKit, or AppKit) and 3 to 6 more files for what is on screen. Never load
@@ -33,7 +35,7 @@ a generated lookup table, and the script that regenerates all of it.
 | `.cursorrules` | Entry point for Cursor | Yes |
 | `GEMINI.md` | Entry point for Antigravity | Yes |
 | `.github/FUNDING.yml` | GitHub Sponsors button configuration | Yes |
-| `references/hig-lookup.md` | Generated routing table with an omitted-pages list | No, re-run the script |
+| `references/hig-lookup.md` | Generated table of every page with Apple's summary and change date, plus an omitted-pages list | No, re-run the script |
 | `references/hig/*.md` | 123 generated pages in Apple's wording | No, re-run the script |
 | `references/hig/liquid-glass.md` | Curated Liquid Glass guide; the script never touches it | Yes |
 | `references/cross-platform.md` | Apple's vocabulary and conventions for Flutter, React Native, Tauri, and Electron | Yes |
@@ -69,8 +71,9 @@ What the script does:
   that would prune more than a tenth of the files stops and asks for `--force-prune`.
 
 After running it: review `git diff --stat`, spot-check a changed file, run the checks below,
-refresh `liquid-glass.md` if a page it links to changed, and update the page counts in
-`README.md`, `SKILL.md`, and this file if the file count changed. A new "Designing for" page has
+refresh `liquid-glass.md` if a page it links to changed, and, if pages were added or removed,
+update the page counts in `README.md`, `SKILL.md`, and this file, and add or remove the page in
+the "Every page, by Apple's section" table in `SKILL.md`. A new "Designing for" page has
 no platform metadata: if its `Platforms covered` line doesn't name a platform, add its slug to
 `DESIGNING_FOR_COVERAGE` in the script.
 
@@ -81,14 +84,18 @@ node --check scripts/pull-hig.mjs
 node scripts/pull-hig.mjs --cache .cache && git status --short   # second run must change nothing
 grep -rl 'doc://' references/hig                                  # must print nothing
 npx skills add . --list                                           # must find the apple-design skill
+ls references/hig | while read -r f; do sed -n '/^### Every page/,/^## /p' SKILL.md | grep -q "\`$f\`" || echo "not in the page table: $f"; done   # must print nothing
+grep -o '`[a-z0-9-]*\.md`' SKILL.md | tr -d '`' | sort -u | while read -r f; do [ -f "references/hig/$f" ] || echo "no such page: $f"; done   # must print nothing
 ```
 
-Also confirm that every guideline file named in `SKILL.md` exists in `references/hig/`. Ignore
-the `file.md` placeholder in the report template and `hig-lookup.md`, which lives one level up.
+The last two keep `SKILL.md` and `references/hig/` in step in both directions: every page is
+in the skill's "Every page, by Apple's section" table, and every page the skill names exists.
 
 ## Conventions
 
-- Keep `SKILL.md` under about 400 lines. It loads in full every time the skill triggers.
+- Keep `SKILL.md` under about 450 lines; Anthropic's skill guidance caps the body at 500. It loads
+  in full every time the skill triggers, and it names every guideline page so that no reference
+  sits more than one level away from it.
 - Apple's text in `references/hig/` is quoted, not paraphrased. Cross-platform translation lives
   in `references/cross-platform.md`, `SKILL.md`, and `liquid-glass.md`, and code patterns in
   `references/code-audit.md`, not in the pulled files.

@@ -27,15 +27,16 @@ Tauri, and Electron. Translate vocabulary for the user's framework; never water 
 
 ## The references
 
-Everything lives under `references/` relative to this skill's directory.
+Everything lives under `references/` relative to this skill's directory. Every guideline page is
+named in the tables below, so open a page straight from the table that routes you to it.
 
 | Path | What it is |
 | --- | --- |
-| `references/hig-lookup.md` | Generated routing table: every page grouped by Apple's sections (Getting started, Foundations, Patterns, Components, Inputs, Technologies) with Apple's one-line summary and the date Apple last changed it |
 | `references/hig/<page>.md` | One file per HIG page in Apple's own wording and headings. Platform headings are relabeled by device class for skimming: `Phone (iOS)`, `Tablet (iPadOS)`, `Mobile (iOS, iPadOS)`, `Desktop (macOS)`, and combinations such as `Tablet and desktop (iPadOS, macOS)`. Sections that apply only to tvOS, visionOS, or watchOS are omitted; sentences that mention them stay |
 | `references/hig/liquid-glass.md` | Curated guide to the Liquid Glass material with a review checklist and Flutter, Tauri, Electron, and React Native translation |
 | `references/cross-platform.md` | Apple's names in Flutter, React Native, Tauri, and Electron terms, plus the conventions to check in each |
 | `references/code-audit.md` | What to search for in source code: hand-drawn Apple Pay buttons and marks, Liquid Glass misuse, and code that blocks iPhone Duo adaptation, each with its citation and replacement |
+| `references/hig-lookup.md` | Generated table of the same pages with Apple's one-line summary of each, the date Apple last changed it, and the pages Apple publishes that are left out, with the reason. Open it to check what a page covers when its name is ambiguous, or to see which Apple pages are out of scope |
 | `scripts/pull-hig.mjs` | Regenerates the references from Apple's site. Not needed for reviews |
 
 Rules for using them:
@@ -79,7 +80,29 @@ UIKit, or AppKit, also load `references/cross-platform.md` to translate Apple's 
 | AI features | `generative-ai.md`, `machine-learning.md` |
 | Brand expression | `branding.md`, `design-principles.md` |
 
-Anything else: find it in `hig-lookup.md`.
+### Every page, by Apple's section
+
+Every page is here, including the ones placed above. Open the file directly; names follow
+Apple's page titles.
+
+| Section | Files in `references/hig/` |
+| --- | --- |
+| Getting started | `design-principles.md`, `designing-for-ios.md`, `designing-for-ipados.md`, `designing-for-macos.md`, `designing-for-games.md`, `designing-for-iphone-duo.md` |
+| Foundations | `accessibility.md`, `app-icons.md`, `branding.md`, `color.md`, `dark-mode.md`, `icons.md`, `images.md`, `inclusion.md`, `layout.md`, `materials.md`, `motion.md`, `privacy.md`, `right-to-left.md`, `sf-symbols.md`, `typography.md`, `writing.md` |
+| Patterns | `charting-data.md`, `collaboration-and-sharing.md`, `drag-and-drop.md`, `entering-data.md`, `feedback.md`, `file-management.md`, `going-full-screen.md`, `launching.md`, `live-viewing-apps.md`, `loading.md`, `managing-accounts.md`, `managing-notifications.md`, `modality.md`, `multitasking.md`, `offering-help.md`, `onboarding.md`, `playing-audio.md`, `playing-haptics.md`, `playing-video.md`, `printing.md`, `ratings-and-reviews.md`, `searching.md`, `settings.md`, `undo-and-redo.md` |
+| Components › Content | `charts.md`, `image-views.md`, `text-views.md`, `web-views.md` |
+| Components › Layout and organization | `boxes.md`, `collections.md`, `column-views.md`, `disclosure-controls.md`, `labels.md`, `lists-and-tables.md`, `outline-views.md`, `split-views.md`, `tab-views.md` |
+| Components › Menus and actions | `activity-views.md` (the share sheet), `buttons.md`, `context-menus.md`, `dock-menus.md`, `edit-menus.md`, `home-screen-quick-actions.md`, `menus.md`, `pop-up-buttons.md`, `pull-down-buttons.md`, `the-menu-bar.md`, `toolbars.md` |
+| Components › Navigation and search | `path-controls.md`, `search-fields.md`, `sidebars.md`, `tab-bars.md`, `token-fields.md` |
+| Components › Presentation | `action-sheets.md`, `alerts.md`, `page-controls.md`, `panels.md`, `popovers.md`, `scroll-views.md`, `sheets.md`, `windows.md` |
+| Components › Selection and input | `color-wells.md`, `combo-boxes.md`, `image-wells.md`, `pickers.md`, `segmented-controls.md`, `sliders.md`, `steppers.md`, `text-fields.md`, `toggles.md`, `virtual-keyboards.md` |
+| Components › Status | `gauges.md`, `progress-indicators.md`, `rating-indicators.md` |
+| Components › System experiences | `app-shortcuts.md`, `controls.md` (Control Center, Lock Screen, and Action button controls), `live-activities.md`, `notifications.md`, `snippets.md` (Siri and App Shortcut results and confirmations), `status-bars.md`, `widgets.md` |
+| Inputs | `apple-pencil-and-scribble.md`, `focus-and-selection.md`, `game-controls.md`, `gestures.md`, `gyro-and-accelerometer.md`, `keyboards.md`, `pointing-devices.md` |
+| Technologies | `airplay.md`, `app-clips.md`, `apple-in-app-purchase.md`, `apple-pay.md`, `augmented-reality.md`, `generative-ai.md`, `icloud.md`, `machine-learning.md`, `maps.md`, `nfc.md`, `sign-in-with-apple.md`, `siri.md`, `voiceover.md` |
+| Curated | `liquid-glass.md` |
+
+To find which pages mention a term, search the folder: `grep -ril "size class" references/hig`.
 
 ## Apple's design principles
 
