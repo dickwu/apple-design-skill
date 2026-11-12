@@ -88,6 +88,7 @@ Ask your agent things like:
 - *"Check this app icon"*
 - *"Audit this repo for anything App Review would reject in our Apple Pay checkout"*
 - *"Is this onboarding flow asking for permissions the right way?"*
+- *"Give this utility a classic Mac OS look without breaking accessibility"*
 
 ## What a review covers
 
@@ -123,6 +124,13 @@ on web checkouts the app opens; Liquid Glass applied to content, stacked, or ove
 that keeps an app from adapting to iPhone Duo, such as fixed widths, custom bars, and overlays
 that ignore the fold. Each match is cited with `path:line` and the guideline it breaks.
 
+**Design heritage** draws on Apple's archived guidelines from the 1987 Apple Desktop Interface to
+the 2014 iOS 7 and OS X editions, summarized in `references/heritage.md`. It traces each of
+today's principles back to its older statement and test (the four consistency questions, the
+list of acceptable modes, "frequent alerts mean a design problem"), lists the advice Apple has
+since replaced so a review never cites it as current, and keeps retro designs (classic Mac OS,
+Platinum, Aqua, early iOS) on today's accessibility floor.
+
 **Improvement mode** goes further: it grounds the design in the product, plans a token system
 (palette, type roles, layout wireframe, one signature element, motion), critiques that plan
 against generic defaults before proposing it, and sequences the fixes from accessibility to
@@ -142,6 +150,7 @@ apple-design-skill/
     ├── hig-lookup.md            # Generated index with Apple's summaries, change dates, and omitted pages
     ├── cross-platform.md        # Apple's names in Flutter, React Native, Tauri, Electron terms
     ├── code-audit.md            # Code patterns for Apple Pay, Liquid Glass, and iPhone Duo
+    ├── heritage.md              # Apple's classic principles from the 1980 to 2014 editions
     └── hig/                     # 123 generated pages + 1 curated guide
         ├── design-principles.md
         ├── designing-for-iphone-duo.md
