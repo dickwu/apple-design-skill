@@ -19,8 +19,10 @@ When reviewing or improving UI/UX designs, follow the Apple HIG based design rev
    gets a short review, not a list of manufactured findings.
 8. When reviewing code rather than screenshots, or any app that takes Apple Pay, follow
    references/code-audit.md and cite path:line beside each guideline.
+9. For a retro or classic Mac or iOS look, or to explain why a guideline exists, load
+   references/heritage.md. It never overrides a current page in references/hig/.
 
 Trigger this process when the user asks to: review a design, audit UI/UX, check accessibility,
 improve a layout, adapt an app for iPhone Duo, implement Liquid Glass or glassmorphism, make a
 design less generic, review an app icon, widget, or Live Activity, audit a codebase, check an
-Apple Pay checkout, or evaluate any visual or interaction design.
+Apple Pay checkout, design a retro Apple look, or evaluate any visual or interaction design.

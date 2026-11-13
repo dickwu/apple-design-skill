@@ -40,6 +40,7 @@ a generated lookup table, and the script that regenerates all of it.
 | `references/hig/liquid-glass.md` | Curated Liquid Glass guide; the script never touches it | Yes |
 | `references/cross-platform.md` | Apple's vocabulary and conventions for Flutter, React Native, Tauri, and Electron | Yes |
 | `references/code-audit.md` | Code patterns to search for (Apple Pay, Liquid Glass, iPhone Duo), with citations and replacements | Yes |
+| `references/heritage.md` | Classic principles from Apple's archived 1980 to 2014 guidelines, summarized in our own words, mapped to today's | Yes |
 | `scripts/pull-hig.mjs` | Pull script, Node 18 or newer, no dependencies | Yes |
 
 ## Refreshing the references
@@ -99,6 +100,9 @@ in the skill's "Every page, by Apple's section" table, and every page the skill 
 - Apple's text in `references/hig/` is quoted, not paraphrased. Cross-platform translation lives
   in `references/cross-platform.md`, `SKILL.md`, and `liquid-glass.md`, and code patterns in
   `references/code-audit.md`, not in the pulled files.
+- `references/heritage.md` is the opposite: it summarizes the archived editions in our own words
+  and never reproduces them. Don't add the archived PDFs or long excerpts to the repository, and
+  keep its "Superseded advice" table in step when a current page replaces an old rule.
 - Don't add pages to `references/hig/` by hand. Change `OMITTED_PAGES` or the platform rule in
   the script instead.
 - A hand-written file in `references/hig/` must be registered in `CURATED_FILES` and must not

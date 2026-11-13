@@ -8,7 +8,8 @@ description: >
   audit, HIG compliance, accessibility audit, dark mode, Liquid Glass or glassmorphism, navigation
   structure, iPhone Duo or foldable layouts, Apple Pay buttons and marks, widgets and Live
   Activities, onboarding, forms, app icons, generative AI UX, App Review rejections over design or
-  branding, or requests like "make this look less generic". Also use whenever the user shares
+  branding, retro or classic Mac and iOS looks, the history behind a guideline, or requests like
+  "make this look less generic". Also use whenever the user shares
   screenshots, mockups, wireframes, Figma exports, or UI code and wants feedback, even if they
   only say "review my design" or "is this good UI", or asks to audit a codebase or pull request.
   Works for SwiftUI, UIKit, AppKit, Flutter, React Native, Tauri, and Electron.
@@ -36,6 +37,7 @@ named in the tables below, so open a page straight from the table that routes yo
 | `references/hig/liquid-glass.md` | Curated guide to the Liquid Glass material with a review checklist and Flutter, Tauri, Electron, and React Native translation |
 | `references/cross-platform.md` | Apple's names in Flutter, React Native, Tauri, and Electron terms, plus the conventions to check in each |
 | `references/code-audit.md` | What to search for in source code: hand-drawn Apple Pay buttons and marks, Liquid Glass misuse, and code that blocks iPhone Duo adaptation, each with its citation and replacement |
+| `references/heritage.md` | Curated summary of Apple's archived guidelines, 1980 to 2014: the classic principles mapped to today's, rules of thumb the editions repeat, advice that was superseded, and rules for retro designs. Explains why a guideline exists; never overrides a current page |
 | `references/hig-lookup.md` | Generated table of the same pages with Apple's one-line summary of each, the date Apple last changed it, and the pages Apple publishes that are left out, with the reason. Open it to check what a page covers when its name is ambiguous, or to see which Apple pages are out of scope |
 | `scripts/pull-hig.mjs` | Regenerates the references from Apple's site. Not needed for reviews |
 
@@ -119,6 +121,13 @@ filter: a screen that breaks a principle has a bigger problem than any single gu
 | Simplicity | Be clear and direct | Has every element earned its place? |
 | Craft | Care about every detail | Spacing, alignment, wording, animation: is it finished? |
 | Delight | Make it human | Is there a feeling here, and is it the right one? Apple's own warning: don't mistake delight for decoration |
+
+The eight are the latest wording of ideas Apple has published since 1987: metaphors, direct
+manipulation, consistency, user control, feedback, forgiveness, perceived stability, aesthetic
+integrity, and modelessness. When a screen feels wrong and no current page names the problem, or
+two current pages pull in different directions, open `references/heritage.md` for the older,
+sharper statement of the principle and its test, such as the four consistency questions or the
+list of acceptable modes. Cite the current page first and label the historical rule as such.
 
 ## Review process
 
@@ -373,6 +382,11 @@ Citation format:
   accented, vibrant; light, dark, clear, tinted), a removable background for StandBy, CarPlay, and
   Apple HomeView, and every Live Activity presentation, with compact and minimal views that fit a
   28 pt circle when the Dynamic Island is limited in width, as on iPhone in landscape.
+- **Retro or heritage-inspired design.** `references/heritage.md`, `branding.md`, then the
+  always-load set. Trigger on "retro Mac", "classic Mac OS", "System 7", "Platinum", "Aqua",
+  "skeuomorphic", "NeXTSTEP", or "old iOS look". The era is the brand layer; navigation,
+  controls, and the accessibility floor stay current. Flag any superseded pattern from the
+  guide's table that the design copies by accident rather than by intent.
 - **Component check.** Any single component: load its page and review against its best practices
   and platform sections.
 
