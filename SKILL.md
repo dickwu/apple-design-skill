@@ -1,18 +1,9 @@
 ---
 name: apple-design
 description: >
-  Cross-platform UI/UX design reviewer grounded in Apple's Human Interface Guidelines (123 pages
-  pulled from developer.apple.com, including 57 component pages) plus a design-craft lens for
-  distinctive, non-templated work. Use it to audit, review, critique, or improve any mobile app
-  (iOS, Flutter, React Native) or desktop app (macOS, Tauri, Electron) design: design review, UI
-  audit, HIG compliance, accessibility audit, dark mode, Liquid Glass or glassmorphism, navigation
-  structure, iPhone Duo or foldable layouts, Apple Pay buttons and marks, widgets and Live
-  Activities, onboarding, forms, app icons, generative AI UX, App Review rejections over design or
-  branding, retro or classic Mac and iOS looks, the history behind a guideline, or requests like
-  "make this look less generic". Also use whenever the user shares
-  screenshots, mockups, wireframes, Figma exports, or UI code and wants feedback, even if they
-  only say "review my design" or "is this good UI", or asks to audit a codebase or pull request.
-  Works for SwiftUI, UIKit, AppKit, Flutter, React Native, Tauri, and Electron.
+
+description: Reviews and improves iOS, macOS, and cross-platform UI/UX designs using Apple's Human Interface Guidelines. Evaluates accessibility, typography, color, layout, navigation, components, dark mode, Liquid Glass, and visual consistency. Supports screenshots, Figma designs, wireframes, and source code. Provides actionable design recommendations.
+
 ---
 
 # Apple Design Skill
