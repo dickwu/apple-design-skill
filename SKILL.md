@@ -1,7 +1,5 @@
 ---
 name: apple-design
-description: >
-
 description: Reviews and improves iOS, macOS, and cross-platform UI/UX designs using Apple's Human Interface Guidelines. Evaluates accessibility, typography, color, layout, navigation, components, dark mode, Liquid Glass, and visual consistency. Supports screenshots, Figma designs, wireframes, and source code. Provides actionable design recommendations.
 
 ---
