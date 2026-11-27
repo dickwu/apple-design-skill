@@ -200,8 +200,10 @@ and the Sponsor button at the top of the repository leads to the same page.
 
 ## Origin and license
 
-The guideline text belongs to Apple Inc. and is reproduced from the public
+The skill, the curated guides, the cross-platform notes, and the pull script are released under
+the [MIT License](LICENSE).
+
+The guideline text in `references/hig/` belongs to Apple Inc. and is reproduced from the public
 [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
 for AI-assisted design review, with a source link at the top of every file. This project is not
-affiliated with or endorsed by Apple. The skill, the curated guide, and the script are provided
-as they are; use them at your own discretion.
+affiliated with or endorsed by Apple. The MIT License does not apply to that text.
